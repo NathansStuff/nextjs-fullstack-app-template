@@ -3,19 +3,56 @@
     "plugin:storybook/recommended",
     "next",
     "next/core-web-vitals",
-    "eslint:recommended"
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
+  "env": {
+    "jest": true
+  },
   "globals": {
-    "React": "readonly" // No need to import React in every file
+    "React": "readonly", // No need to import React in every file,
+    "JSX": "readonly" // No need to import JSX in every file
+  },
+
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    "no-restricted-imports": ["error", { "patterns": ["@components/*/*"] }],
+    "semi": "error",
+    "no-undef": "error",
+    "@typescript-eslint/explicit-function-return-type": "error"
   },
   "overrides": [
     {
       "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
       "rules": {
-        // example of overriding a rule
         "storybook/hierarchy-separator": "error"
+      }
+    },
+    {
+      "files": ["./jest.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ],
-  "rules": {}
+  "ignorePatterns": [
+    "node_modules/",
+    "out/",
+    "coverage/",
+    "dist/",
+    "public/",
+    "next.config.js",
+    "next-env.d.ts",
+    "stories/"
+  ]
 }
