@@ -3,7 +3,9 @@ import {
   configureStore,
   PreloadedState,
 } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 import counterReducer from '../features/counter/counterSlice';
+
 // Create the root reducer independently to obtain the RootState type
 const rootReducer = combineReducers({
   counter: counterReducer,
@@ -17,12 +19,17 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
   });
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const middleware: any[] = [];
+
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(logger);
+}
+
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+    getDefaultMiddleware().concat(middleware),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
