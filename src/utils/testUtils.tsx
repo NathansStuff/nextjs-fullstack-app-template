@@ -1,14 +1,29 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { render as rtlRender } from '@testing-library/react';
+import { configureStore, PreloadedState } from '@reduxjs/toolkit';
+import {
+  render as rtlRender,
+  RenderOptions,
+  RenderResult,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { AppStore, RootState } from 'src/context/store';
 
 import counterReducer from '../features/counter/counterSlice';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// This type interface extends the default options for render from RTL, as well
+// as allows the user to specify other things such as initialState, store.
+interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
+  preloadedState?: PreloadedState<RootState>;
+  store?: AppStore;
+}
+
+// This function is a wrapper around the render function from RTL. It takes in
+// a component and renders it with the Redux store and any other options that
+// are passed in.
+
 function reducer(
-  ui: JSX.Element,
+  ui: React.ReactElement,
   {
-    preloadedState,
+    preloadedState = {},
     store = configureStore({
       reducer: {
         counter: counterReducer,
@@ -16,12 +31,16 @@ function reducer(
       preloadedState,
     }),
     ...renderOptions
-  } = {}
-) {
-  function Wrapper({ children }): JSX.Element {
+  }: ExtendedRenderOptions = {}
+): RenderResult {
+  const Wrapper = ({ children }: WrapperProps): JSX.Element => {
     return <Provider store={store}>{children}</Provider>;
-  }
+  };
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+}
+
+interface WrapperProps {
+  children: React.ReactNode;
 }
 
 export * from '@testing-library/react';
