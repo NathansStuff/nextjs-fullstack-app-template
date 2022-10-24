@@ -6,7 +6,7 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   verbose: true,
-  collectCoverage: true,
+  // collectCoverage: true,
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
@@ -19,7 +19,7 @@ const customJestConfig = {
     'pages/**/*.{js,jsx,ts,tsx}',
     // Excluded
     '!src/**/*.d.ts',
-    '!pages/_app.tsx',
+    '!pages/_app.page.tsx',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
     '!src/**/*.mocks.{js,jsx,ts,tsx}',
     '!src/**/index.{js,jsx,ts,tsx}', // index files should only export other files
