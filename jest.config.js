@@ -6,6 +6,8 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   verbose: true,
+  // Adds what's in this file to the top of every file in the test suite
+  setupFilesAfterEnv: ['./src/utils/tests/setupTests.ts'],
   // collectCoverage: true,
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',

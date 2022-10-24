@@ -20,6 +20,12 @@
       "@components/templates/*": ["src/components/templates/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/hello.test.ts", "src/utils/testUtils.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/api/hello.test.ts",
+    "src/utils/tests/testUtils.tsx"
+  ],
   "exclude": ["node_modules"]
 }

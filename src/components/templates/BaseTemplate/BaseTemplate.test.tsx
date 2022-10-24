@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BaseTemplate } from './BaseTemplate';
 import { mockBaseTemplateProps } from './BaseTemplate.mocks';
-import '@testing-library/jest-dom/extend-expect';
 
 describe('BaseTemplate', () => {
   beforeEach(() => {

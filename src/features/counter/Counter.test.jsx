@@ -1,7 +1,6 @@
-import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, screen } from '@testing-library/react';
-import { reducer } from '../../utils/testUtils';
+import { fireEvent, reducer, screen } from '../../utils/tests/testUtils';
 import Counter from './Counter';
+
 describe('BaseTemplate', () => {
   beforeEach(() => {
     reducer(<Counter />);
