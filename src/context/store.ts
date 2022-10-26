@@ -4,7 +4,7 @@ import {
   PreloadedState,
 } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import { NODE_ENV } from 'src/data/constants';
+import { NODE_ENV } from 'src/data/config';
 import counterReducer from '../features/counter/counterSlice';
 
 // Create the root reducer independently to obtain the RootState type
