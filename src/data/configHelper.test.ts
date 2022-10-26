@@ -1,4 +1,4 @@
-import { getEnvironmentVariable } from './helpers';
+import { getEnvironmentVariable } from './configHelpers';
 
 describe('getEnvironmentVariable helper function', () => {
   const OLD_ENV = process.env;
