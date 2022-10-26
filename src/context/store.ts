@@ -4,6 +4,7 @@ import {
   PreloadedState,
 } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
+import { NODE_ENV } from 'src/data/constants';
 import counterReducer from '../features/counter/counterSlice';
 
 // Create the root reducer independently to obtain the RootState type
@@ -22,7 +23,7 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const middleware: any[] = [];
 
-if (process.env.NODE_ENV !== 'production') {
+if (NODE_ENV !== 'production') {
   middleware.push(logger);
 }
 

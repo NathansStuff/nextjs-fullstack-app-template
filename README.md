@@ -190,7 +190,7 @@ Storybook gives us an environment to show off and test the React components we a
 
 Note that Storybook is meant as a visual testing tool, we must use other tools later for functional unit testing and end-to-end testing.
 
-With `npm storybook` you will be able to access it on [http://localhost:6006](http://localhost:6006)
+With `npm run storybook` you will be able to access it on [http://localhost:6006](http://localhost:6006)
 
 ## Creating a Component Template
 

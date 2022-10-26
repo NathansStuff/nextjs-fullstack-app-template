@@ -1,7 +1,8 @@
 import { fireEvent, reducer, screen } from '../../utils/tests/testUtils';
 import Counter from './Counter';
 
-describe('BaseTemplate', () => {
+
+describe('Counter', () => {
   beforeEach(() => {
     reducer(<Counter />);
   });
