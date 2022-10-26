@@ -23,7 +23,7 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const middleware: any[] = [];
 
-if (NODE_ENV !== 'production') {
+if (NODE_ENV !== 'production' && NODE_ENV !== 'test') {
   middleware.push(logger);
 }
 
