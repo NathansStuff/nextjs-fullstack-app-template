@@ -33,7 +33,7 @@ describe('Toggle component', () => {
     expect(screen.getByTestId('toggle')).toHaveClass(activeClass);
   });
 
-  it('renders with the correct initial passed state', () => {
+  it('renders without passing an argument for initiallyChecked', () => {
     render(<Toggle onChange={mockToggleProps.onChange} />);
     expect(screen.getByTestId('toggle')).toBeInTheDocument();
   });
@@ -54,12 +54,5 @@ describe('Toggle component', () => {
     renderSpyToggle();
     clickTheToggle();
     expect(onChange).toHaveBeenCalledWith(false);
-  });
-
-  it('calls the onChange function with the correct value when clicked twice', () => {
-    renderSpyToggle();
-    clickTheToggle();
-    clickTheToggle();
-    expect(onChange).toHaveBeenNthCalledWith(2, true);
   });
 });
