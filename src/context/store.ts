@@ -1,10 +1,6 @@
-import {
-  combineReducers,
-  configureStore,
-  PreloadedState,
-} from '@reduxjs/toolkit';
+import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import { NODE_ENV } from 'src/data/config';
+import { NEXT_PUBLIC_NODE_ENV } from 'src/data/config';
 import counterReducer from '../features/counter/counterSlice';
 
 // Create the root reducer independently to obtain the RootState type
@@ -21,16 +17,19 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const middleware: any[] = [];
-
-if (NODE_ENV !== 'production' && NODE_ENV !== 'test') {
-  middleware.push(logger);
+export function getMiddleware(env: string): any[] {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const middleware: any[] = [];
+  console.log('getting middleware');
+  if (env !== 'production' && env !== 'test') {
+    middleware.push(logger);
+  }
+  return middleware;
 }
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(getMiddleware(NEXT_PUBLIC_NODE_ENV)),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
