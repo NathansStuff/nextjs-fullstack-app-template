@@ -20,7 +20,6 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
 export function getMiddleware(env: string): any[] {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const middleware: any[] = [];
-  console.log('getting middleware');
   if (env !== 'production' && env !== 'test') {
     middleware.push(logger);
   }
