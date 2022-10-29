@@ -14,6 +14,10 @@ describe('setup store', () => {
   });
 
   describe('getMiddleware function', () => {
+    // Note: This test is only testing that the middleware function works as expected across different environments.
+    // It is not testing the middleware itself.
+
+    // Note: If you add or remove middleware, you will need to update this test.
     const originalEnv = process.env;
 
     describe.each`
@@ -34,7 +38,7 @@ describe('setup store', () => {
         process.env = originalEnv;
       });
 
-      it(`should return "${expectedMiddlewareLength}"`, () => {
+      it(`should return "${expectedMiddlewareLength} middleware added to the store"`, () => {
         expect(getMiddleware(nodeEnv).length).toEqual(expectedMiddlewareLength);
       });
     });
