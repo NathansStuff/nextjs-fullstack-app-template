@@ -59,9 +59,7 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                   <HUIRadioGroup.Label
                     as='p'
                     data-testid='radioGroupOptionText'
-                    className={trimClassname(
-                      `font-sans font-bold text-center text-xs ${checked ? checkedClass : uncheckedClass}`
-                    )}
+                    className={trimClassname(`fieldHeading text-center ${checked ? checkedClass : uncheckedClass}`)}
                   >
                     {componentOption}
                   </HUIRadioGroup.Label>
