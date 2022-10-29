@@ -20,3 +20,9 @@ InitialValue.args = {
   ...mockRadioGroupProps,
   initialValue: 0,
 } as IRadioGroup;
+
+export const Errors = Template.bind({});
+Errors.args = {
+  ...mockRadioGroupProps,
+  showErrors: true,
+} as IRadioGroup;
