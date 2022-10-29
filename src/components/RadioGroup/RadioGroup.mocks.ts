@@ -9,7 +9,7 @@ export const mockRadioGroupProps: IRadioGroup = {
       id: 'shareHouseholdExpensesYes',
     },
     {
-      label: 'No, I Do Not Share The Household Expenses',
+      label: 'No, I Pay For All The Household Expenses',
       value: false,
       id: 'shareHouseholdExpensesNo',
     },

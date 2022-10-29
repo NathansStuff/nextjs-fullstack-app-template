@@ -37,11 +37,11 @@ export const parameters = {
     defaultViewport: 'vroom',
   },
   backgrounds: {
-    default: 'light',
+    default: 'vroom',
     values: [
       {
         name: 'light',
-        value: '#ffffff',
+        value: '#F7F7F7',
       },
       {
         name: 'dark',

@@ -35,7 +35,7 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
     <div data-testid="radioGroup" className="w-full px-4 py-16">
       <div className="mx-auto w-full max-w-md">
         <HUIRadioGroup value={selected} onChange={handleChange} className="w-full">
-          <HUIRadioGroup.Label className="font-sans font-bold pb-1" as="p">
+          <HUIRadioGroup.Label className="font-sans font-bold pb-1 text-xs" as="p">
             {title}
           </HUIRadioGroup.Label>
           <HUIRadioGroup.Label className="sr-only">{title}</HUIRadioGroup.Label>
@@ -49,8 +49,8 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                 data-testid="radioGroupOptionCard"
                 className={({ active, checked }): string =>
                   `${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300' : ''}
-                  ${checked ? 'bg-sky-900 bg-opacity-75 text-white' : 'bg-white'} ${haveErrors() ? errorClass : ''}
-                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none w-full`
+                  ${checked ? 'bg-secondary text-white' : 'bg-white'} ${haveErrors() ? errorClass : ''}
+                    relative flex cursor-pointer rounded-lg p-2 shadow-md focus:outline-none w-full border `
                 }
               >
                 {/* Inner Card */}
@@ -58,7 +58,7 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                   <HUIRadioGroup.Label
                     as="p"
                     data-testid="radioGroupOptionText"
-                    className={`font-sans font-bold text-center ${checked ? checkedClass : uncheckedClass}`}
+                    className={`font-sans font-bold text-center text-xs ${checked ? checkedClass : uncheckedClass}`}
                   >
                     {componentOption}
                   </HUIRadioGroup.Label>
