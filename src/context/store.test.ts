@@ -1,5 +1,5 @@
 import { increment } from '../features/counter/counterSlice';
-import { getMiddleware, setupStore } from './store';
+import { getMiddleware, rootReducer, setupStore } from './store';
 
 describe('setup store', () => {
   it('should setup the store', () => {
@@ -11,6 +11,13 @@ describe('setup store', () => {
   it('should setup the store with preloaded state', () => {
     const store = setupStore({ counter: { value: 3 } });
     expect(store.getState().counter.value).toEqual(3);
+  });
+
+  describe('rootReducer', () => {
+    // Note: This is a dumb test, if you have a more complex test, you should remove this
+    it('should return the array of reducers', () => {
+      expect(rootReducer).toBeTruthy();
+    });
   });
 
   describe('getMiddleware function', () => {

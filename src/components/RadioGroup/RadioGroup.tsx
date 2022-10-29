@@ -1,5 +1,6 @@
 import { RadioGroup as HUIRadioGroup } from '@headlessui/react';
 import { useState } from 'react';
+import { trimClassname } from 'src/utils/styleHelper';
 
 interface IOption {
   label: string;
@@ -48,9 +49,9 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                 value={componentOption}
                 data-testid="radioGroupOptionCard"
                 className={({ active, checked }): string =>
-                  `${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300' : ''}
+                  trimClassname(`${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300' : ''}
                   ${checked ? 'bg-secondary text-white' : 'bg-white'} ${haveErrors() ? errorClass : ''}
-                    relative flex cursor-pointer rounded-lg p-2 shadow-md focus:outline-none w-full border `
+                    relative flex cursor-pointer rounded-lg p-2 shadow-md focus:outline-none w-full border `)
                 }
               >
                 {/* Inner Card */}
@@ -58,7 +59,9 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                   <HUIRadioGroup.Label
                     as="p"
                     data-testid="radioGroupOptionText"
-                    className={`font-sans font-bold text-center text-xs ${checked ? checkedClass : uncheckedClass}`}
+                    className={trimClassname(
+                      `font-sans font-bold text-center text-xs ${checked ? checkedClass : uncheckedClass}`
+                    )}
                   >
                     {componentOption}
                   </HUIRadioGroup.Label>
