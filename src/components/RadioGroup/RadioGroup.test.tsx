@@ -37,7 +37,7 @@ describe('BaseTemplate', () => {
 
   it('displays the passed value', () => {
     renderBaseComponent();
-    expect(screen.getAllByTestId('radioGroupOptionText')[0]).toHaveTextContent(mockRadioGroupProps.options[0]);
+    expect(screen.getAllByTestId('radioGroupOptionText')[0]).toHaveTextContent(mockRadioGroupProps.options[0].label);
   });
 
   it('calls the onChange function when clicked', () => {
@@ -46,11 +46,11 @@ describe('BaseTemplate', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it('calls the onChange function with the correct index of the selected option when clicked', () => {
+  it('calls the onChange function with the correct value of the selected option when clicked', () => {
     renderSpyComponent();
     const index = 0;
     clickElement(screen.getAllByTestId('radioGroupOptionText')[index]);
-    expect(onChange).toHaveBeenCalledWith(index);
+    expect(onChange).toHaveBeenCalledWith(mockRadioGroupProps.options[index].value);
   });
 
   it('changes the selected option when clicked', () => {

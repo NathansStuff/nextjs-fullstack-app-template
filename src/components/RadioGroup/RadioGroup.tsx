@@ -1,23 +1,34 @@
 import { RadioGroup as HUIRadioGroup } from '@headlessui/react';
 import { useState } from 'react';
 
+interface IOption {
+  label: string;
+  value: string | boolean;
+  id: string;
+}
 export interface IRadioGroup {
   title: string;
-  options: string[];
+  options: IOption[];
   showErrors: boolean;
   initialValue?: number;
-  onChange: (value: number) => void;
+  onChange: (value: string | boolean) => void;
 }
 export function RadioGroup({ title, options, initialValue, showErrors, onChange }: IRadioGroup): JSX.Element {
-  const [selected, setSelected] = useState<string | null>(initialValue !== undefined ? options[initialValue] : null);
+  const componentOptions: string[] = [];
+  options.map((option) => componentOptions.push(option.label));
+
+  const [selected, setSelected] = useState<string | null>(
+    initialValue !== undefined ? componentOptions[initialValue] : null
+  );
 
   function haveErrors(): boolean {
     return showErrors && !selected;
   }
 
-  function handleChange(value: string): void {
-    setSelected(value);
-    onChange(options.indexOf(value));
+  function handleChange(clickedOption: string): void {
+    setSelected(clickedOption);
+    const selectedOption = options.find((option) => option.label === clickedOption) as IOption;
+    onChange(selectedOption.value);
   }
 
   return (
@@ -29,11 +40,12 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
           </HUIRadioGroup.Label>
           <HUIRadioGroup.Label className="sr-only">{title}</HUIRadioGroup.Label>
           <div className="flex space-x-2 w-full">
-            {options.map((option) => (
+            {componentOptions.map((componentOption) => (
               // Outside Card
               <HUIRadioGroup.Option
-                key={option}
-                value={option}
+                key={componentOption}
+                data-googleid={options[componentOptions.indexOf(componentOption)].id}
+                value={componentOption}
                 data-testid="radioGroupOptionCard"
                 className={({ active, checked }): string =>
                   `${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300' : ''}
@@ -48,7 +60,7 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                     data-testid="radioGroupOptionText"
                     className={`font-sans font-bold text-center ${checked ? checkedClass : uncheckedClass}`}
                   >
-                    {option}
+                    {componentOption}
                   </HUIRadioGroup.Label>
                 )}
               </HUIRadioGroup.Option>
