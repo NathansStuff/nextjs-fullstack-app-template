@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .fieldHeading {
+    @apply font-sans font-bold pb-1 text-xs;
+  }
+}
+

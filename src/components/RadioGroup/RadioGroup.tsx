@@ -33,21 +33,21 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
   }
 
   return (
-    <div data-testid="radioGroup" className="w-full px-4 py-16">
-      <div className="mx-auto w-full max-w-md">
-        <HUIRadioGroup value={selected} onChange={handleChange} className="w-full">
-          <HUIRadioGroup.Label className="font-sans font-bold pb-1 text-xs" as="p">
+    <div data-testid='radioGroup' className='w-full px-4 py-16'>
+      <div className='mx-auto w-full max-w-md'>
+        <HUIRadioGroup value={selected} onChange={handleChange} className='w-full'>
+          <HUIRadioGroup.Label className='fieldHeading' as='p'>
             {title}
           </HUIRadioGroup.Label>
-          <HUIRadioGroup.Label className="sr-only">{title}</HUIRadioGroup.Label>
-          <div className="flex space-x-2 w-full">
+          <HUIRadioGroup.Label className='sr-only'>{title}</HUIRadioGroup.Label>
+          <div className='flex space-x-2 w-full'>
             {componentOptions.map((componentOption) => (
               // Outside Card
               <HUIRadioGroup.Option
                 key={componentOption}
                 data-googleid={options[componentOptions.indexOf(componentOption)].id}
                 value={componentOption}
-                data-testid="radioGroupOptionCard"
+                data-testid='radioGroupOptionCard'
                 className={({ active, checked }): string =>
                   trimClassname(`${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300' : ''}
                   ${checked ? 'bg-secondary text-white' : 'bg-white'} ${haveErrors() ? errorClass : ''}
@@ -57,8 +57,8 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                 {/* Inner Card */}
                 {({ checked }): JSX.Element => (
                   <HUIRadioGroup.Label
-                    as="p"
-                    data-testid="radioGroupOptionText"
+                    as='p'
+                    data-testid='radioGroupOptionText'
                     className={trimClassname(
                       `font-sans font-bold text-center text-xs ${checked ? checkedClass : uncheckedClass}`
                     )}
