@@ -4,7 +4,7 @@ import { NEXT_PUBLIC_NODE_ENV } from 'src/data/config';
 import counterReducer from '../features/counter/counterSlice';
 
 // Create the root reducer independently to obtain the RootState type
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   counter: counterReducer,
 });
 
