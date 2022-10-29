@@ -1,7 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Provider } from 'react-redux';
-import 'tailwindcss/tailwind.css';
 import { store } from '../src/context/store';
+import '../src/styles/globals.css';
 
 const customViewports = {
   vroom: {
