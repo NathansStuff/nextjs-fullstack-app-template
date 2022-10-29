@@ -3,7 +3,7 @@ import { IRadioGroup, RadioGroup } from './RadioGroup';
 import { mockRadioGroupProps } from './RadioGroup.mocks';
 
 export default {
-  title: 'templates/RadioGroup',
+  title: 'components/RadioGroup',
   component: RadioGroup,
   argTypes: {},
 } as ComponentMeta<typeof RadioGroup>;
