@@ -4,7 +4,19 @@
 
 @layer components {
   .fieldHeading {
-    @apply font-sans font-bold pb-1 text-xs;
+    @apply font-sans font-bold pb-1 text-xs text-textPrimary;
+  }
+
+  .inputButtonFocus {
+    @apply focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-60 focus:ring-offset-2 focus:ring-offset-sky-300
+  }
+
+  .error {
+    @apply bg-error border border-errorDark;
+  }
+
+  .placeholderStyle {
+    @apply placeholder:italic placeholder:text-center placeholder-lightGrey
   }
 }
 

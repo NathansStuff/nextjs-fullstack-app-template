@@ -49,9 +49,9 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
                 value={componentOption}
                 data-testid='radioGroupOptionCard'
                 className={({ active, checked }): string =>
-                  trimClassname(`${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300' : ''}
-                  ${checked ? 'bg-secondary text-white' : 'bg-white'} ${haveErrors() ? errorClass : ''}
-                    relative flex cursor-pointer rounded-lg p-2 shadow-md focus:outline-none w-full border `)
+                  trimClassname(`${active ? 'inputButtonFocus' : ''}
+                  ${checked ? 'bg-secondary text-white' : ''} ${haveErrors() ? errorClass : 'bg-white'}
+                    relative flex cursor-pointer rounded-lg p-2 shadow-md  w-full border `)
                 }
               >
                 {/* Inner Card */}
@@ -76,4 +76,4 @@ export function RadioGroup({ title, options, initialValue, showErrors, onChange 
 // For testing purposes, constants and exported instead of being inlined
 export const checkedClass = 'text-white';
 export const uncheckedClass = 'text-gray-900';
-export const errorClass = 'bg-red-500';
+export const errorClass = 'error';

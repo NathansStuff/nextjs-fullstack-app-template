@@ -19,7 +19,8 @@ module.exports = {
         secondary: '#447CF9',
         secondaryDark: '#1C3177', // eg, Edit Loan Structure title
         secondaryLight: '#447cf9', // eg, Dropdown select
-        error: '#FFBA00',
+        error: '#fff8e0',
+        errorDark: '#FFBA00',
         success: '#27DA4C',
         grey: '#BDBDBD',
         lightGrey: '#D3D3D3',
@@ -37,13 +38,13 @@ module.exports = {
     ({ addUtilities }) => {
       addUtilities({
         '.fieldHeading': {
-          'font-family':
-            "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, 'Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
+          fontFamily:
+            'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji',
           fontSize: '32px',
           fontWeight: 700,
-          'padding-bottom': '0.25rem' /* 4px */,
-          'font-size': '0.75rem' /* 12px */,
-          'line-height': '1rem' /* 16px */,
+          paddingBottom: '0.25rem' /* 4px */,
+          fontSize: '0.75rem' /* 12px */,
+          lineHeight: '1rem' /* 16px */,
         },
       });
     },
