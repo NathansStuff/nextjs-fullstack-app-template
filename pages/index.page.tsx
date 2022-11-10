@@ -2,6 +2,7 @@ import { BaseTemplate } from '@components/templates';
 import { useAppSelector } from 'src/context/storeHooks';
 import Counter from 'src/features/counter/Counter';
 import { selectCount } from 'src/features/counter/counterSlice';
+import { Page } from 'src/layouts/Page';
 
 export default function Home(): JSX.Element {
   // The `state` arg is correctly typed as `RootState` already
@@ -11,6 +12,9 @@ export default function Home(): JSX.Element {
       <BaseTemplate sampleTextProp='' />
       <h1 className='text-3xl font-bold underline'>Hello world!</h1>
       <Counter />
+      <Page>
+        <p>s</p>
+      </Page>
       <p>The count is {count}</p>
     </div>
   );

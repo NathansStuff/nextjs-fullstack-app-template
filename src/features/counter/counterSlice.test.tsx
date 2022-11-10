@@ -45,7 +45,7 @@ describe('Counter redux state tests', () => {
     expect(state.value).toEqual(10);
   });
 
-  it('counter slice should have the correct initial state', () => {
+  it('counter slice should have the correct name', () => {
     expect(counterSlice.name).toEqual('counter');
   });
 });

@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/layouts/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -29,6 +33,9 @@ module.exports = {
       // screens: {
       //   lg: '1190px',
       // },
+      boxShadow: {
+        '3xl': '0 4px 4px rgb(0 0 0 / 25%)',
+      },
     },
   },
   plugins: [
