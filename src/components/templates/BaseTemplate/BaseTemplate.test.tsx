@@ -8,10 +8,16 @@ describe('BaseTemplate', () => {
   });
 
   it('renders without errors', () => {
+    // Arrange
+    // Act
+    // Assert
     expect(screen.getByTestId('baseTemplate')).toBeInTheDocument();
   });
 
   it('displays the passed value', () => {
+    // Arrange
+    // Act
+    // Assert
     expect(screen.getByRole('heading')).toHaveTextContent(
       mockBaseTemplateProps.sampleTextProp
     );

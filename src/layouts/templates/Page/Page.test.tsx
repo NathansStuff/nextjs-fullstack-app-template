@@ -8,10 +8,16 @@ describe('BaseTemplate', () => {
   });
 
   it('renders without errors', () => {
+    // Arrange
+    // Act
+    // Assert
     expect(screen.getByTestId('page')).toBeInTheDocument();
   });
 
   it('displays the passed children', () => {
+    // Arrange
+    // Act
+    // Assert
     expect(screen.getByTestId('mockChildren')).toBeInTheDocument();
   });
 });

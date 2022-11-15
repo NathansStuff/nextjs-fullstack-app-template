@@ -31,7 +31,7 @@ export function Button({
   return (
     <button
       data-testid="button"
-      className={`btn border p-1 flex justify-center items-center w-full rounded-lg font-bold transition duration-500 transform ${getButtonTypeClassName(
+      className={`btn border p-1 flex justify-center items-center w-full rounded-full font-bold transition duration-500 transform ${getButtonTypeClassName(
         type
       )}`}
       onClick={onClick}

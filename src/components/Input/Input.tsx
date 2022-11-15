@@ -1,8 +1,9 @@
+import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { ChangeEvent, useState } from 'react';
 import { trimClassname } from 'src/utils/styleHelper';
 
 export interface IInput {
-  heading: string;
+  heading?: string;
   placeholder: string;
   id: string;
   onChange: (value: string) => void;
@@ -13,7 +14,7 @@ export interface IInput {
 /**
  * Input component
  *
- * @param {string} heading - Required - Heading of the input field
+ * @param {string} heading - Optional - Heading of the input field
  * @param {string} placeholder - Required - Placeholder of the input field
  * @param {string} id - Required - Id of the input field
  * @param {function} onChange - Required - Function to be called when input value changes. Takes the new value as a parameter
@@ -42,20 +43,23 @@ export function Input({ heading, placeholder, id, value, showErrors, onChange }:
 
   return (
     <div data-testid='input'>
-      <h1 className='fieldHeading px-4'>{heading}</h1>
-      <input
-        className={trimClassname(
-          `shadow appearance-none border rounded-xl w-full p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
-            haveErrors() ? errorClass : ''
-          }`
-        )}
-        id={id}
-        type='text'
-        data-testid='inputField'
-        placeholder={placeholder}
-        value={inputValue}
-        onChange={handleChange}
-      />
+      {heading ? <h1 data-testid='inputHeading' className='fieldHeading px-4'>{heading}</h1> : null}
+      <div className='relative flex items-center'>
+        <input
+          className={trimClassname(
+            `shadow appearance-none border rounded-xl w-full p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
+              haveErrors() ? errorClass : ''
+            }`
+          )}
+          id={id}
+          type='text'
+          data-testid='inputField'
+          placeholder={placeholder}
+          value={inputValue}
+          onChange={handleChange}
+        />
+        <MagnifyingGlassIcon className='pointer-events-none w-7 h-7 absolute top-1/2 transform -translate-y-1/2 right-3 fill-primary' aria-hidden='true' />
+      </div>
     </div>
   );
 }

@@ -27,3 +27,11 @@ export const mockTextInputProps: IInput = {
   id: 'input-id',
   showErrors: false,
 };
+
+export const mockNoHeadingInputProps: IInput = {
+  placeholder: 'Enter your name',
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: () => {},
+  id: 'input-id',
+  showErrors: false,
+};

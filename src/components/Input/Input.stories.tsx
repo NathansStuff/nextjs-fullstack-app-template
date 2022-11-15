@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { IInput, Input } from './Input';
-import { mockErrorInputProps, mockInputProps, mockTextInputProps } from './Input.mocks';
+import { mockErrorInputProps, mockInputProps, mockNoHeadingInputProps, mockTextInputProps } from './Input.mocks';
 
 export default {
   title: 'components/Input',
@@ -23,4 +23,9 @@ Error.args = {
 export const Text = Template.bind({});
 Text.args = {
   ...mockTextInputProps,
+} as IInput;
+
+export const NoHeading = Template.bind({});
+NoHeading.args = {
+  ...mockNoHeadingInputProps,
 } as IInput;

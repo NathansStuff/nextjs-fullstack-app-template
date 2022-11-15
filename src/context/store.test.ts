@@ -3,20 +3,30 @@ import { getMiddleware, rootReducer, setupStore } from './store';
 
 describe('setup store', () => {
   it('should setup the store', () => {
+    // Arrange
     const store = setupStore();
+    // Act
     store.dispatch(increment());
+    // Assert
     expect(store.getState().counter.value).toEqual(1);
   });
 
   it('should setup the store with preloaded state', () => {
+    // Arrange
     const store = setupStore({ counter: { value: 3 } });
+    // Act
+    // Assert
     expect(store.getState().counter.value).toEqual(3);
   });
 
   describe('rootReducer', () => {
     // Note: This is a dumb test, if you have a more complex test, you should remove this
     it('should return the array of reducers', () => {
-      expect(rootReducer).toBeTruthy();
+      // Arrange
+      const reducers = rootReducer;
+      // Act
+      // Assert
+      expect(reducers).toBeTruthy();
     });
   });
 
@@ -25,6 +35,8 @@ describe('setup store', () => {
     // It is not testing the middleware itself.
 
     // Note: If you add or remove middleware, you will need to update this test.
+
+    // Arrange
     const originalEnv = process.env;
 
     describe.each`
@@ -46,6 +58,8 @@ describe('setup store', () => {
       });
 
       it(`should return "${expectedMiddlewareLength} middleware added to the store"`, () => {
+        // Act
+        // Assert
         expect(getMiddleware(nodeEnv).length).toEqual(expectedMiddlewareLength);
       });
     });

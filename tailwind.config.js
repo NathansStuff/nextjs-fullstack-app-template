@@ -9,30 +9,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // primary: '#48AAE1',
-        // primaryFocus: '#0078DC',
-        // primaryHover: '#238ade',
-        // lightGray: '#F4F4F4',
-        // midGray: '#C4C4C4',
-        // darkGray: '#555555',
-        // darkBlack: '#3A3939',
-        // green: '#60C664',
-        // errorBg: '#FFC300',
-
-        primary: '#F44BB6',
-        secondary: '#447CF9',
-        secondaryDark: '#1C3177', // eg, Edit Loan Structure title
-        secondaryLight: '#447cf9', // eg, Dropdown select
+        primary: 'rgba(30, 58, 75, 1)', // navy black / blue
+        secondary: 'rgba(255, 55, 79, 1)', // red
+        secondaryDark: '#1C3177',
+        secondaryLight: '#447cf9',
         error: '#fff8e0',
         errorDark: '#FFBA00',
         success: '#27DA4C',
         grey: '#BDBDBD',
         lightGrey: '#D3D3D3',
         textPrimary: '#4E4E4E',
+        tertiary: 'rgba(227, 238, 240, 1)', // light blue, background
       },
-      // screens: {
-      //   lg: '1190px',
-      // },
       boxShadow: {
         '3xl': '0 4px 4px rgb(0 0 0 / 25%)',
       },

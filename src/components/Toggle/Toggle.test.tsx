@@ -24,35 +24,53 @@ describe('Toggle component', () => {
   });
 
   it('renders without errors', () => {
+    // Arrange
     renderBaseToggle();
+    // Act
+    // Assert
     expect(screen.getByTestId('toggle')).toBeInTheDocument();
   });
 
   it('renders with the correct initial default state', () => {
+    // Arrange
     renderBaseToggle();
+    // Act
+    // Assert
     expect(screen.getByTestId('toggle')).toHaveClass(activeClass);
   });
 
   it('renders without passing an argument for initiallyChecked', () => {
+    // Arrange
     render(<Toggle onChange={mockToggleProps.onChange} />);
+    // Act
+    // Assert
     expect(screen.getByTestId('toggle')).toBeInTheDocument();
   });
 
   it('renders with the correct state when clicked', () => {
+    // Arrange
     renderBaseToggle();
+    // Act
     clickTheToggle();
+    // Assert
     expect(screen.getByTestId('toggle')).toHaveClass(inactiveClass);
   });
 
   it('calls the onChange function when clicked', () => {
+    // Arrange
     renderSpyToggle();
+    // Act
     clickTheToggle();
+    // Assert
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   it('calls the onChange function with the correct value when clicked', () => {
+    // Arrange
     renderSpyToggle();
+    // Act
     clickTheToggle();
+    // Assert
     expect(onChange).toHaveBeenCalledWith(false);
   });
 });
