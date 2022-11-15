@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from 'src/context/store';
 import { login } from 'src/features/user';
@@ -40,7 +40,9 @@ describe('Header component', () => {
     it('should change to log out when the user is logged in', async () => {
       // Arrange
       // Act
-      await store.dispatch(login('John'));
+      await act(async () => {
+        await store.dispatch(login('John'));
+      });
       // Assert
       expect(screen.getByText('Log Out')).toBeInTheDocument();
     });

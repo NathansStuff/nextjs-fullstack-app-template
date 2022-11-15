@@ -6,8 +6,6 @@ export function Header(): JSX.Element {
   // *****STATE HOOKS*****
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
-  console.log(isLoggedIn);
-
   // *****RENDER*****
   return (
     <div data-testid='header' className='flex w-full bg-gray-500 justify-between pb-2'>

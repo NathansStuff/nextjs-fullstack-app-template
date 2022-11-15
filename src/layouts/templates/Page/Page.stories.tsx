@@ -3,7 +3,7 @@ import { Page, IPage } from './Page';
 import { mockPageProps } from './Page.mocks';
 
 export default {
-  title: 'layouts/Page',
+  title: 'templates/Page',
   component: Page,
   argTypes: {},
 } as ComponentMeta<typeof Page>;
