@@ -1,8 +1,12 @@
-import { Button } from '@components/Button';
+// import { Button } from '@components/Button';
 import { Combobox } from '@components/Combobox';
-import { Input } from '@components/Input';
+// import { Input } from '@components/Input';
+import Link from 'next/link';
 
 export default function Home(): JSX.Element {
+  // function searchByQuery(query: string): void {
+  //   console.log(query);
+  // }
   return (
     <div
       data-testid='homepage'
@@ -27,10 +31,10 @@ export default function Home(): JSX.Element {
           onChange={(): void => {
             console.log('change');
           }}
-        />
+        /> */}
         <Combobox placeholder='Search for make' options={[]} />
         <Combobox placeholder='Search for category' options={[]} />
-        <Button
+        {/* <Button
           onClick={(): void => {
             console.log('click');
           }}
@@ -38,7 +42,9 @@ export default function Home(): JSX.Element {
           Search All Trucks
         </Button> */}
         <div className='text-center'>
-          <p className='text-sm underline text-primary'>Need finance?</p>
+          <Link href='/finance'>
+            <p className='text-sm underline text-primary'>Need finance?</p>
+          </Link>
         </div>
       </div>
     </div>

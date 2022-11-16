@@ -33,7 +33,7 @@ export function Input({ heading, placeholder, id, value, showErrors, onChange }:
     return showErrors && !value;
   }
 
-  const [inputValue, setInputValue] = useState<string>(value || '');
+  const [inputValue, setInputValue] = useState<string>(value ?? '');
 
   function handleChange(event: ChangeEvent<HTMLInputElement>): void {
     const { value } = event.target;
