@@ -24,6 +24,9 @@ module.exports = {
       boxShadow: {
         '3xl': '0 4px 4px rgb(0 0 0 / 25%)',
       },
+      backgroundImage: {
+        road: "url('/img/road.png')",
+      },
     },
   },
   plugins: [

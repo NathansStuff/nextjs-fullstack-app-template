@@ -14,9 +14,5 @@
   .error {
     @apply bg-error border border-errorDark;
   }
-
-  .placeholderStyle {
-    @apply placeholder:italic placeholder:text-center placeholder-lightGrey
-  }
 }
 

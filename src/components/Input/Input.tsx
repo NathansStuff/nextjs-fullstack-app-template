@@ -43,12 +43,16 @@ export function Input({ heading, placeholder, id, value, showErrors, onChange }:
 
   return (
     <div data-testid='input'>
-      {heading ? <h1 data-testid='inputHeading' className='fieldHeading px-4'>{heading}</h1> : null}
+      {heading ? (
+        <h1 data-testid='inputHeading' className='fieldHeading px-4'>
+          {heading}
+        </h1>
+      ) : null}
       <div className='relative flex items-center'>
         <input
           className={trimClassname(
-            `shadow appearance-none border rounded-xl w-full p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
-              haveErrors() ? errorClass : ''
+            `text-sm appearance-none border-2 rounded-lg w-full p-2 text-primary placeholder-primary leading-tight inputButtonFocus ${
+              haveErrors() ? errorClass : null
             }`
           )}
           id={id}
@@ -58,7 +62,10 @@ export function Input({ heading, placeholder, id, value, showErrors, onChange }:
           value={inputValue}
           onChange={handleChange}
         />
-        <MagnifyingGlassIcon className='pointer-events-none w-7 h-7 absolute top-1/2 transform -translate-y-1/2 right-3 fill-primary' aria-hidden='true' />
+        <MagnifyingGlassIcon
+          className='pointer-events-none w-6 h-6 absolute top-1/2 transform -translate-y-1/2 right-3 fill-primary'
+          aria-hidden='true'
+        />
       </div>
     </div>
   );

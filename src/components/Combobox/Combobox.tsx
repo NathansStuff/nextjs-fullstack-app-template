@@ -1,5 +1,5 @@
 import { Combobox as HUICombobox, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import { Fragment, useState } from 'react';
 
 export interface ICombobox {
@@ -24,12 +24,12 @@ export function Combobox({ options, placeholder }: ICombobox): JSX.Element {
         );
 
   return (
-    <div className='fixed top-16 w-72'>
+    <div className=''>
       <HUICombobox value={selected} onChange={setSelected} data-testid='combobox'>
         <div className='relative mt-1'>
-          <div className='relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
+          <div className='border-2 relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
             <HUICombobox.Input
-              className='w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
+              className='w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0 placeholder-primary'
               displayValue={(option: IComboboxOption): string => option?.value ?? ''}
               placeholder={placeholder}
               data-testid='combobox-input'
@@ -39,7 +39,7 @@ export function Combobox({ options, placeholder }: ICombobox): JSX.Element {
               data-testid='combobox-button'
               className='absolute inset-y-0 right-0 flex items-center pr-2'
             >
-              <ChevronUpDownIcon className='h-5 w-5 text-gray-400' aria-hidden='true' />
+              <ChevronDownIcon className='h-7 w-7 fill-primary' aria-hidden='true' />
             </HUICombobox.Button>
           </div>
           <Transition
@@ -74,7 +74,7 @@ export function Combobox({ options, placeholder }: ICombobox): JSX.Element {
                               active ? 'text-white' : 'text-teal-600'
                             }`}
                           >
-                            <CheckIcon className='h-5 w-5' aria-hidden='true' />
+                            <CheckIcon className='h-5 w-5 fill-primary' aria-hidden='true' />
                           </span>
                         ) : null}
                       </>

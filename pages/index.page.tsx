@@ -1,18 +1,46 @@
-import { BaseTemplate } from '@components/templates';
-import { useAppSelector } from 'src/context/storeHooks';
-import Counter from 'src/features/counter/Counter';
-import { selectCount } from 'src/features/counter/counterSlice';
+import { Button } from '@components/Button';
+import { Combobox } from '@components/Combobox';
+import { Input } from '@components/Input';
 
 export default function Home(): JSX.Element {
-  // The `state` arg is correctly typed as `RootState` already
-  const count = useAppSelector(selectCount);
   return (
-    <div data-testid='homepage' className='bg-pink-500 md:bg-blue-500 lg:bg-red-500'>
-      <BaseTemplate sampleTextProp='' />
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
-      <Counter />
+    <div
+      data-testid='homepage'
+      className='bg-road bg-cover bg-center bg-hero bg-no-repeat bg-fixed md:bg-blue-500 lg:bg-red-500 px-5 py-10'
+    >
+      {/* Slogan Text */}
+      <div>
+        <div>
+          <p className='font-bold text-white text-2xl'>Search. Choose. Finance.</p>
+          <p className='text-white text-lg'>
+            Thousands of trucks for sale, all in one place. Find your next truck here.
+          </p>
+        </div>
+      </div>
 
-      <p>The count is {count}</p>
+      {/* Search Card */}
+      <div className='bg-white rounded-xl shadow-xl p-5 mt-5 flex flex-col space-y-3'>
+        {/* <Input
+          placeholder='Type here to search'
+          id='home-search-input'
+          showErrors={false}
+          onChange={(): void => {
+            console.log('change');
+          }}
+        />
+        <Combobox placeholder='Search for make' options={[]} />
+        <Combobox placeholder='Search for category' options={[]} />
+        <Button
+          onClick={(): void => {
+            console.log('click');
+          }}
+        >
+          Search All Trucks
+        </Button> */}
+        <div className='text-center'>
+          <p className='text-sm underline text-primary'>Need finance?</p>
+        </div>
+      </div>
     </div>
   );
 }
