@@ -3,7 +3,7 @@ import { Combobox, ICombobox } from './Combobox';
 import { mockComboboxProps } from './Combobox.mocks';
 
 export default {
-  title: 'templates/Combobox',
+  title: 'components/Combobox',
   component: Combobox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
