@@ -46,4 +46,13 @@ describe('CategoryIcon', () => {
     // Assert
     expect(screen.getByTestId('categoryIconSolidHeart')).toBeInTheDocument();
   });
+
+  it('calls onHeartClick when the heart icon is clicked', () => {
+    // Arrange
+    renderBase();
+    // Act
+    screen.getByTestId('categoryIconOutlineHeart').click();
+    // Assert
+    expect(mockCategoryIconProps.onHeartClick).toHaveBeenCalledTimes(1);
+  });
 });
