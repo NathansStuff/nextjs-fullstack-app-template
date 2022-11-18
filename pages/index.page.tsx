@@ -112,21 +112,35 @@ export default function Home(): JSX.Element {
         </div>
       </div>
       {/* Why Truckstop */}
-      <div className='bg-tertiary p-10 space-y-5'>
-        <p className='font-bold text-center text-3xl text-primary'>
-          Why Truck<span className='text-secondary'>Stop?</span>
-        </p>
-        <div className='flex space-x-5'>
-          <Image src='/img/trucksearchicon.svg' alt='Magnifying glass over a truck image' width={90} height={43} />
-          <p className='text-primary font-bold'>Find your perfect truck with all trucks for sale in one place</p>
-        </div>
-        <div className='flex space-x-5'>
-          <Image src='/img/moneytimeicon.svg' alt='Money in hand against a clock' width={90} height={43} />
-          <p className='text-primary font-bold'>Instantly qualify for finance with no impact on credit score</p>
-        </div>
-        <div className='flex space-x-5'>
-          <Image src='/img/easycashicon.svg' alt='Phone with finance document' width={60} height={43} />
-          <p className='text-primary font-bold w-full'>Easy finance application 100% online</p>
+      <div className='flex justify-center items-center'>
+        <div className='bg-tertiary p-10 space-y-5 md:rounded-lg md:max-w-5xl w-full lg:pr-0'>
+          <p className='font-bold text-center text-3xl text-primary'>
+            Why Truck<span className='text-secondary'>Stop?</span>
+          </p>
+          <div className='space-y-5 lg:flex lg:space-y-0'>
+            <div className='flex space-x-4 lg:w-full'>
+              <div className='w-10 h-10 relative'>
+                <Image src='/img/trucksearchicon.svg' alt='Magnifying glass over a truck image' layout='fill' />
+              </div>
+              <p className='text-primary font-bold lg:w-3/4'>
+                Find your perfect truck with all trucks for sale in one place
+              </p>
+            </div>
+            <div className='flex space-x-4 lg:w-full'>
+              <div className='w-10 h-10 relative'>
+                <Image src='/img/moneytimeicon.svg' alt='Money in hand against a clock' layout='fill' />
+              </div>
+              <p className='text-primary font-bold lg:w-3/4'>
+                Instantly qualify for finance with no impact on credit score
+              </p>
+            </div>
+            <div className='flex space-x-4 lg:w-full'>
+              <div className='w-10 h-10 relative'>
+                <Image src='/img/easycashicon.svg' alt='Phone with finance document' layout='fill' />
+              </div>
+              <p className='text-primary font-bold lg:w-3/4'>Easy finance application 100% online</p>
+            </div>
+          </div>
         </div>
       </div>
       {/* New Trucks */}
