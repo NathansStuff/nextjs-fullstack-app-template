@@ -74,14 +74,16 @@ export default function Home(): JSX.Element {
           <Button onClick={emptyFunction} title='Search All Trucks'></Button>
           <div className='text-center'>
             <Link href='/finance'>
-              <p className='text-sm underline text-primary'>Need finance?</p>
+              <p className='text-sm underline text-primary pb-2'>Need finance?</p>
             </Link>
           </div>
         </div>
-        <div className='h-20' />
+        <div className='h-14 relative' />
+        <div className='absolute bottom-16'>
+        <Image src='/img/herotruck.svg' height={180} width={330} alt='truck' /></div>
       </div>
       {/* Categories */}
-      <div className='pt-24 pb-10'>
+      <div className='pt-20 pb-10'>
         <p className='text-primary font-bold text-3xl text-center py-5'>Explore by category</p>
         <div className='flex w-full'>
           <CategoryIcon title='pantech truck' image='/img/pantech.svg' favorite={false} onHeartClick={onHeartClick} />
