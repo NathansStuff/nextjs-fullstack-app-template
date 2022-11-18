@@ -90,22 +90,25 @@ export default function Home(): JSX.Element {
             <Image src='/img/herotruck.svg' layout='fill' alt='truck' />
           </div>
         </div>
-        <p className='text-primary font-bold text-3xl text-center py-5'>Explore by category</p>
-        <div className='flex w-full'>
-          <CategoryIcon title='pantech truck' image='/img/pantech.svg' favorite={false} onHeartClick={onHeartClick} />
-          <CategoryIcon title='tray truck' image='/img/traytruck.svg' favorite={false} onHeartClick={onHeartClick} />
-        </div>
-        <div className='flex w-full'>
-          <CategoryIcon title='tipper' image='/img/tipper.svg' favorite={false} onHeartClick={onHeartClick} />
-          <CategoryIcon title='prime mover' image='/img/primemover.svg' favorite={false} onHeartClick={onHeartClick} />
-        </div>
-        <div className='flex w-full'>
-          <CategoryIcon title='trailer' image='/img/trailer.svg' favorite={false} onHeartClick={onHeartClick} />
-          <CategoryIcon title='utility' image='/img/utility.svg' favorite={false} onHeartClick={onHeartClick} />
-        </div>
-        <div className='flex w-full'>
-          <CategoryIcon title='van' image='/img/van.svg' favorite={false} onHeartClick={onHeartClick} />
-          <CategoryIcon title='crane' image='/img/crane.svg' favorite={false} onHeartClick={onHeartClick} />
+        {/* Title */}
+        <p className='text-primary font-bold text-3xl text-center py-5 lg:pt-24'>Explore by category</p>
+        {/* Categories */}
+        <div className='flex justify-center items-center'>
+          <div className='grid grid-cols-2 gap-x-10 px-10 md:grid-cols-4 max-w-lg md:max-w-3xl'>
+            <CategoryIcon title='pantech truck' image='/img/pantech.svg' favorite={false} onHeartClick={onHeartClick} />
+            <CategoryIcon title='tray truck' image='/img/traytruck.svg' favorite={false} onHeartClick={onHeartClick} />
+            <CategoryIcon title='tipper' image='/img/tipper.svg' favorite={false} onHeartClick={onHeartClick} />
+            <CategoryIcon
+              title='prime mover'
+              image='/img/primemover.svg'
+              favorite={false}
+              onHeartClick={onHeartClick}
+            />
+            <CategoryIcon title='trailer' image='/img/trailer.svg' favorite={false} onHeartClick={onHeartClick} />
+            <CategoryIcon title='utility' image='/img/utility.svg' favorite={false} onHeartClick={onHeartClick} />
+            <CategoryIcon title='van' image='/img/van.svg' favorite={false} onHeartClick={onHeartClick} />
+            <CategoryIcon title='crane' image='/img/crane.svg' favorite={false} onHeartClick={onHeartClick} />
+          </div>
         </div>
       </div>
       {/* Why Truckstop */}
