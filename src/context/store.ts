@@ -1,6 +1,6 @@
 import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import { NEXT_PUBLIC_NODE_ENV } from 'src/data/config';
+import { NEXT_PUBLIC_NODE_ENV } from 'src/data';
 import { userReducer } from 'src/features/user';
 import counterReducer from '../features/counter/counterSlice';
 
