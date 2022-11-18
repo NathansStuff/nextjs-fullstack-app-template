@@ -1,7 +1,11 @@
-import { Button } from '@components/Button';
+import { Button, EButtonType } from '@components/Button';
+import { Carousel } from '@components/Carousel';
 import { CategoryIcon } from '@components/CategoryIcon';
 import { Combobox } from '@components/Combobox';
 import { Input } from '@components/Input';
+import { ListingCard } from '@components/ListingCard';
+import { CheckIcon } from '@heroicons/react/20/solid';
+import { HeartIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,6 +16,35 @@ export default function Home(): JSX.Element {
   function onHeartClick(): void {
     console.log('heart clicked');
   }
+
+  function emptyFunction(): void {
+    return;
+  }
+
+  const carouselItems = [
+    <ListingCard
+      key={1}
+      image='https://picsum.photos/200/300'
+      title='2014 Freightliner Coronado 114'
+      subtitle='540,000km • Manual Transmission'
+      price={115500}
+      weeklyRepayment={146}
+      favorite={false}
+      onHeartClick={(): void => console.log('Clicked')}
+      url='/listing/1'
+    />,
+    <ListingCard
+      key={2}
+      image='https://picsum.photos/200/300'
+      title='2014 Freightliner Coronado 114'
+      subtitle='540,000km • Manual Transmission'
+      price={115500}
+      weeklyRepayment={146}
+      favorite={false}
+      onHeartClick={(): void => console.log('Clicked')}
+      url='/listing/1'
+    />,
+  ];
   return (
     <div className='flex flex-col' data-testid='homepage'>
       {/* Search Section */}
@@ -38,13 +71,7 @@ export default function Home(): JSX.Element {
           />
           <Combobox placeholder='Search for make' options={[]} />
           <Combobox placeholder='Search for category' options={[]} />
-          <Button
-            onClick={(): void => {
-              console.log('click');
-            }}
-          >
-            Search All Trucks
-          </Button>
+          <Button onClick={emptyFunction} title='Search All Trucks'></Button>
           <div className='text-center'>
             <Link href='/finance'>
               <p className='text-sm underline text-primary'>Need finance?</p>
@@ -89,6 +116,135 @@ export default function Home(): JSX.Element {
         <div className='flex space-x-5'>
           <Image src='/img/easycashicon.svg' alt='Phone with finance document' width={60} height={43} />
           <p className='text-primary font-bold w-full'>Easy finance application 100% online</p>
+        </div>
+      </div>
+      {/* New Trucks */}
+      <div className='py-10'>
+        <p className='text-primary font-bold text-3xl text-center'>New trucks everyday</p>
+        <Carousel items={carouselItems} />
+        <div className='px-10'>
+          <Button title='Browse Latest Trucks' onClick={emptyFunction} />
+        </div>
+      </div>
+      {/* Why Create */}
+      <div className='bg-tertiary py-10 space-y-5'>
+        <p className='text-primary font-bold text-3xl text-center'>Why create an account?</p>
+        <div className='flex space-x-2 items-center px-10'>
+          <Image src='/img/bell.svg' height={20} width={20} alt='bell' />
+          <p className='text-lg'>Save trucks</p>
+        </div>
+        <div className='flex space-x-2 items-center px-10'>
+          <HeartIcon className='h-5 w-5' />
+          <p className='text-lg'>Save searches</p>
+        </div>
+        <div className='flex space-x-2 items-center px-10'>
+          <Image src='/img/dollarLocation.svg' height={20} width={20} alt='dollar' />
+          <p className='text-lg'>Track your finance</p>
+        </div>
+        <div className='flex space-x-2 items-center px-10'>
+          <Image src='/img/magnifyingGlass.svg' height={20} width={20} alt='magnifying Glass' />
+          <p className='text-lg'>Get notifications</p>
+        </div>
+        <div className='flex space-x-2 items-center px-10'>
+          <Image src='/img/speechBubble.svg' height={20} width={20} alt='speech Bubble' />
+          <p className='text-lg'>Update your contact preferences</p>
+        </div>
+        <div className='px-10'>
+          <Button onClick={emptyFunction} title='Join' type={EButtonType.OUTLINE} />
+        </div>
+      </div>
+      {/* Instant Finance */}
+      <div className='bg-mountains text-white py-16 px-5'>
+        <p className='font-bold text-2xl text-center pb-4'>Get your new truck with instant finance pre-approval</p>
+        <p className='text-sm font-light pb-5'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam suscipit tortor a semper laoreet. Aliquam erat
+          volutpat. Etiam sodales dolor vitae sagittis cursus. Aliquam eu vulputate orci, et consectetur.
+        </p>
+        <div className='flex space-x-2 items-center px-2'>
+          <CheckIcon className='h-6 w-6 text-secondary' />
+          <p className='text-lg'>Get instant pre-approval</p>
+        </div>
+        <div className='flex space-x-2 items-center px-2'>
+          <CheckIcon className='h-6 w-6 text-secondary' />
+          <p className='text-lg'>Apply 100% online</p>
+        </div>
+        <div className='flex space-x-2 items-center px-2'>
+          <CheckIcon className='h-6 w-6 text-secondary' />
+          <p className='text-lg'>No impact on credit score</p>
+        </div>
+        <div className='flex space-x-2 items-center px-2 pb-5'>
+          <CheckIcon className='h-6 w-6 text-secondary' />
+          <p className='text-lg'>Get the finance you need, fast</p>
+        </div>
+        <Button onClick={emptyFunction} title='Get Finance' type={EButtonType.SECONDARY} />
+      </div>
+      {/* Lenders */}
+      <div className='py-10'>
+        <p className='text-primary font-bold text-2xl text-center pb-5'>Our trusted lenders</p>
+        <div className='grid grid-cols-3 gap-4 px-10'>
+          <div>
+            <Image
+              src='/lenders/westpac.svg'
+              alt='westpac'
+              width={80}
+              height={35}
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
+          <div>
+            <Image
+              src='/lenders/commbank.svg'
+              alt='commonwealth bank'
+              width={80}
+              height={35}
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
+          <div>
+            <Image
+              src='/lenders/c1carloans.svg'
+              alt='c1 car loans'
+              width={80}
+              height={35}
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
+          <div>
+            <Image
+              src='/lenders/pepper.svg'
+              alt='pepper'
+              width={80}
+              height={35}
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
+          <div>
+            <Image src='/lenders/racv.svg' alt='racv' width={80} height={35} style={{ filter: 'grayscale(100%)' }} />
+          </div>
+          <div>
+            <Image src='/lenders/wisr.svg' alt='wisr' width={80} height={35} style={{ filter: 'grayscale(100%)' }} />
+          </div>
+          <div>
+            <Image
+              src='/lenders/stgeorge.svg'
+              alt='st george'
+              width={80}
+              height={35}
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
+          <div>
+            <Image src='/lenders/zip.svg' alt='zip' width={80} height={35} style={{ filter: 'grayscale(100%)' }} />
+          </div>
+          <div>
+            <Image
+              src='/lenders/financeone.svg'
+              alt='finance one'
+              width={80}
+              height={35}
+              style={{ filter: 'grayscale(100%)' }}
+            />
+          </div>
         </div>
       </div>
     </div>

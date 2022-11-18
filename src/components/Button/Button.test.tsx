@@ -22,7 +22,7 @@ describe('Button', () => {
       // Act
       // Assert
       expect(screen.getByTestId('button')).toHaveTextContent(
-        `${mockButtonProps.children}`
+        `${mockButtonProps.title}`
       );
     });
 

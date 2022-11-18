@@ -9,6 +9,10 @@ const nextConfig = {
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_NODE_ENV: process.env.NEXT_PUBLIC_NODE_ENV,
   },
+  images: {
+    domains: ['picsum.photos' // Demo / local only
+    ],
+  },
 };
 
 module.exports = nextConfig;

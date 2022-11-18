@@ -38,3 +38,9 @@ Disabled.args = {
   ...mockButtonProps,
   type: EButtonType.DISABLED,
 } as IButton;
+
+export const Outline = Template.bind({});
+Outline.args = {
+  ...mockButtonProps,
+  type: EButtonType.OUTLINE,
+} as IButton;

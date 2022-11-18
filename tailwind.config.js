@@ -26,6 +26,7 @@ module.exports = {
       },
       backgroundImage: {
         road: "url('/img/road.png')",
+        mountains: "url('/img/mountains.jpg')",
       },
     },
   },
