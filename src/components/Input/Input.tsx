@@ -1,6 +1,6 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { ChangeEvent, useState } from 'react';
-import { trimClassname } from 'src/utils/styleHelper';
+import { trimClassname } from 'src/utils';
 
 export interface IInput {
   heading?: string;

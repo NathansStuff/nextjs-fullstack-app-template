@@ -30,6 +30,7 @@ module.exports = {
     },
   },
   plugins: [
+  require('flowbite/plugin'),
     // We have to use plugin to let intelligence pick up our custom classname's style
     // A time consuming process, but it's worth it
     // ref: https://github.com/tailwindlabs/tailwindcss-intellisense/issues/227

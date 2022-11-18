@@ -1,5 +1,4 @@
-import { HeartIcon as OutlineHeart } from '@heroicons/react/24/outline';
-import { HeartIcon as SolidHeart } from '@heroicons/react/24/solid';
+import { HeartIcon } from '@components/HeartIcon';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,8 +8,6 @@ export interface ICategoryIcon {
   favorite: boolean;
   onHeartClick: () => void;
 }
-
-const iconClass = 'relative bottom-32 left-16 w-6 h-6 hover:cursor-pointer hover:transform hover:scale-125';
 
 export function CategoryIcon({ image, title, favorite, onHeartClick }: ICategoryIcon): JSX.Element {
   const searchTerm = title.split(' ').join('+');
@@ -31,11 +28,9 @@ export function CategoryIcon({ image, title, favorite, onHeartClick }: ICategory
           </p>
         </div>
       </Link>
-      {favorite ? (
-        <SolidHeart className={iconClass} data-testid='categoryIconSolidHeart' onClick={onHeartClick} />
-      ) : (
-        <OutlineHeart className={iconClass} data-testid='categoryIconOutlineHeart' onClick={onHeartClick} />
-      )}
+      <div className='relative bottom-32 left-16'>
+        <HeartIcon favorite={favorite} onClick={onHeartClick} />
+      </div>
     </div>
   );
 }

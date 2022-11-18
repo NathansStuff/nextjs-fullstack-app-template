@@ -30,29 +30,4 @@ describe('CategoryIcon', () => {
     // Assert
     expect(screen.getByText(mockCategoryIconProps.title)).toBeInTheDocument();
   });
-
-  it('renders the correct heart icon', () => {
-    // Arrange
-    renderBase();
-    // Act
-    // Assert
-    expect(screen.getByTestId('categoryIconOutlineHeart')).toBeInTheDocument();
-  });
-
-  it('renders the correct heart icon when favorite is true', () => {
-    // Arrange
-    render(<CategoryIcon {...mockCategoryIconProps} favorite />);
-    // Act
-    // Assert
-    expect(screen.getByTestId('categoryIconSolidHeart')).toBeInTheDocument();
-  });
-
-  it('calls onHeartClick when the heart icon is clicked', () => {
-    // Arrange
-    renderBase();
-    // Act
-    screen.getByTestId('categoryIconOutlineHeart').click();
-    // Assert
-    expect(mockCategoryIconProps.onHeartClick).toHaveBeenCalledTimes(1);
-  });
 });

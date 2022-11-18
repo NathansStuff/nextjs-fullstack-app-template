@@ -1,7 +1,6 @@
 import { RadioGroup as HUIRadioGroup } from '@headlessui/react';
 import { useState } from 'react';
-import { trimClassname } from 'src/utils/styleHelper';
-
+import { trimClassname } from 'src/utils';
 interface IOption {
   label: string;
   value: string | boolean;
