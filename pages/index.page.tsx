@@ -46,44 +46,50 @@ export default function Home(): JSX.Element {
     />,
   ];
   return (
-    <div className='flex flex-col' data-testid='homepage'>
+    <div className='flex flex-col ' data-testid='homepage'>
       {/* Search Section */}
-      <div className='bg-road bg-cover bg-center bg-hero bg-no-repeat bg-fixed md:bg-blue-500 lg:bg-red-500 px-5 py-10'>
-        {/* Slogan Text */}
-        <div>
-          <div>
-            <p className='font-bold text-white text-2xl'>Search. Choose. Finance.</p>
-            <p className='text-white text-lg'>
+      <div className='bg-road flex justify-center items-center'>
+        <div className='w-full px-5 py-10 md:flex md:px-12 md:space-x-5 lg:px-24 md:justify-between lg:max-w-7xl'>
+          {/* Slogan Text */}
+          <div className='w-full'>
+            <p className='font-bold text-white text-2xl md:text-3xl md:pb-5 md:max-w-[16rem]'>
+              Search. Choose. Finance.
+            </p>
+            <p className='text-white text-lg md:max-w-[20rem] lg:max-w-[16rem]'>
               Thousands of trucks for sale, all in one place. Find your next truck here.
             </p>
           </div>
-        </div>
 
-        {/* Search Card */}
-        <div className='bg-white rounded-xl shadow-xl p-5 mt-5 flex flex-col space-y-3'>
-          <Input
-            placeholder='Type here to search'
-            id='home-search-input'
-            showErrors={false}
-            onChange={(): void => {
-              console.log('change');
-            }}
-          />
-          <Combobox placeholder='Search for make' options={[]} />
-          <Combobox placeholder='Search for category' options={[]} />
-          <Button onClick={emptyFunction} title='Search All Trucks'></Button>
-          <div className='text-center'>
-            <Link href='/finance'>
-              <p className='text-sm underline text-primary pb-2'>Need finance?</p>
-            </Link>
+          {/* Search Card */}
+          <div className='bg-white rounded-xl shadow-xl p-5 mt-5 flex flex-col space-y-3 md:max-w-sm w-full md:m-0 md:z-10'>
+            <Input
+              placeholder='Type here to search'
+              id='home-search-input'
+              showErrors={false}
+              onChange={emptyFunction}
+            />
+            <Combobox placeholder='Search for make' options={[]} />
+            <Combobox placeholder='Search for category' options={[]} />
+            <div>
+              <Button onClick={emptyFunction} title='Search All Trucks' />
+            </div>
+            <div className='text-center'>
+              <Link href='/finance'>
+                <p className='text-sm underline text-primary pb-2'>Need finance?</p>
+              </Link>
+            </div>
+          </div>
+          <div className='h-14 ' />
+        </div>
+      </div>
+      {/* Categories + Hero Image */}
+      <div className='pt-20 pb-10 relative'>
+        {/* Hero Image */}
+        <div className='absolute top-[-7rem] w-full max-w-screen flex justify-center'>
+          <div className='relative w-[90%] h-48 md:h-64 lg:h-96 md:right-32 md:bottom-16 lg:bottom-32 lg:right-0'>
+            <Image src='/img/herotruck.svg' layout='fill' alt='truck' />
           </div>
         </div>
-        <div className='h-14 relative' />
-        <div className='absolute bottom-16'>
-        <Image src='/img/herotruck.svg' height={180} width={330} alt='truck' /></div>
-      </div>
-      {/* Categories */}
-      <div className='pt-20 pb-10'>
         <p className='text-primary font-bold text-3xl text-center py-5'>Explore by category</p>
         <div className='flex w-full'>
           <CategoryIcon title='pantech truck' image='/img/pantech.svg' favorite={false} onHeartClick={onHeartClick} />
