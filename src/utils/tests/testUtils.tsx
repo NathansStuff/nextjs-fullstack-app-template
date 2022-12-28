@@ -1,10 +1,7 @@
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import { render as rtlRender, RenderOptions, RenderResult } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { AppStore, RootState } from 'src/context/store';
-import { userReducer } from 'src/features/user';
-
-import counterReducer from '../../features/counter/counterSlice';
+import { AppStore, rootReducer, RootState } from 'src/context/store';
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -22,10 +19,7 @@ function reducer(
   {
     preloadedState = {},
     store = configureStore({
-      reducer: {
-        counter: counterReducer,
-        user: userReducer,
-      },
+      reducer: rootReducer,
       preloadedState,
     }),
     ...renderOptions
